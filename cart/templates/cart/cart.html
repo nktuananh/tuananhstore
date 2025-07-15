@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giỏ hàng</title>
+</head>
+<body>
+    <h1>Giỏ hàng</h1>
+    <ul>
+        {% for item in items %}
+            <li>
+                {{ item.name }} - Size {{ item.size }} - SL: {{ item.quantity }} - Giá: {{ item.price }}<br>
+                <form method="POST" action="{% url 'update_quantity' item.id %}">
+                    {% csrf_token %}
+                    <input type="number" name="quantity" value="{{ item.quantity }}">
+                    <button type="submit">Cập nhật</button>
+                </form>
+                <form method="POST" action="{% url 'delete_item' item.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Xoá</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>Giỏ hàng trống</li>
+        {% endfor %}
+    </ul>
+    <h3>Tổng: {{ total }}</h3>
+    <form method="POST" action="{% url 'checkout' %}">
+        {% csrf_token %}
+        <button type="submit">Thanh toán</button>
+    </form>
+</body>
+</html>
