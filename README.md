@@ -6,7 +6,7 @@ Website bán giày được phát triển bằng Django.
 - Hiển thị danh sách sản phẩm
 - Thêm vào giỏ hàng
 - Cập nhật số lượng, xóa sản phẩm
-- Thanh toán đơn giản (checkout)
+- Thanh toán đơn giản
 - Quản lý qua trang admin
 
 ## Cách chạy web trên máy

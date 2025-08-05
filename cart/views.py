@@ -3,6 +3,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from .models import CartItem
 import json
+from rest_framework import generics
+from .models import CartItem
+from .serializers import CartItemSerializer
 
 
 def home(request):
@@ -85,4 +88,8 @@ from django.shortcuts import render
 
 def web_page(request):
     return render(request, 'cart/web.html')
+
+class ProductListAPIView(generics.ListAPIView):
+    queryset = CartItem.objects.all()
+    serializer_class = CartItemSerializer
 
