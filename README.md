@@ -14,6 +14,7 @@ Website bán giày được phát triển bằng Django.
 ```bash
 truy cập web theo đường dẫn : http://127.0.0.1:8000/web/
 truy cập admin theo đường dẫn : http://localhost:8000/admin/
+POST MAN : GET[http://localhost:8000/api/products/]
 git clone https://github.com/nktuananh/tuananhstore.git
 cd tuananhstore
 python manage.py runserver
