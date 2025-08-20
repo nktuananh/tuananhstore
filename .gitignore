@@ -1,15 +1,15 @@
-# Byte-compiled / optimized / DLL files
+# Database
+db.sqlite3
+*.sqlite3
+
+# Python cache
 __pycache__/
 *.pyc
 
-# SQLite database
-*.sqlite3
-db.sqlite3
-
-# Virtual environment
+# Environment folders
 venv/
 env/
-.env
+myenv/
 
-# Static files
+# Static files collected by Django
 staticfiles/

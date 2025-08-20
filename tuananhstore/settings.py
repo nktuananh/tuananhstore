@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cart',
     'rest_framework',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Thêm dòng này để chỉ cho Django biết kho chứa ảnh của bạn ở đâu
+STATICFILES_DIRS = [BASE_DIR / "static"]

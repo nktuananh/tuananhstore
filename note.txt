@@ -1,0 +1,2 @@
+chạy trong cmd: cd "Users\Tuan Anh\tuananhstore"
+cài django: pip install djangorestframework
