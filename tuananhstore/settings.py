@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'tuananhstore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tuananhstore_db',         # Tên database bạn đã tạo
+        'USER': 'tuananhstore',            # Tên user bạn đã tạo
+        'PASSWORD': '23042006',     # Mật khẩu bạn đặt cho tuananh_user
+        'HOST': 'localhost',               # Giữ nguyên
+        'PORT': '5432',                    # Port mặc định của Postgres
     }
 }
 

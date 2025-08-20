@@ -8,7 +8,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 import json
 
 from rest_framework import generics
-
 from .models import Product, CartItem 
 from .serializers import ProductSerializer, CartItemSerializer
 from .forms import AddToCartForm
