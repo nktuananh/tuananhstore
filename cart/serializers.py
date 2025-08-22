@@ -1,19 +1,24 @@
 from rest_framework import serializers
-# BẠN CẦN IMPORT CẢ PRODUCT VÀ CARTITEM
-from .models import Product, CartItem
+from .models import Product, CartItem, Order, OrderItem
 
-
-# Serializer MỚI cho Product
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'name', 'price', 'image']
 
-
-# Serializer CŨ cho CartItem (được sửa lại cho đúng)
 class CartItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItem
-        # SỬA LẠI FIELDS CHO ĐÚNG VỚI MODEL MỚI
-        # Nó không còn name, price, image nữa, thay vào đó là liên kết 'product'
         fields = ['id', 'product', 'size', 'quantity', 'added_at']
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = ['product', 'price', 'quantity', 'size']
+
+class OrderSerializer(serializers.ModelSerializer):
+    items = OrderItemSerializer(many=True, read_only=True) # Đây là phần lồng nhau
+
+    class Meta:
+        model = Order
+        fields = ['id', 'created_at', 'total_price', 'items']

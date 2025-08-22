@@ -27,3 +27,19 @@ class CartItem(models.Model):
     # Hàm để tính tổng giá của mục này
     def get_total_price(self):
         return self.product.price * self.quantity
+    
+class Order(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    total_price = models.DecimalField(max_digits=12, decimal_places=0)
+    def __str__(self):
+        return f"Order #{self.id} - {self.created_at.strftime('%d/%m/%Y')}"
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    price = models.DecimalField(max_digits=12, decimal_places=0) # <-- Quan trọng
+    quantity = models.PositiveIntegerField()
+    size = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name} (Size: {self.size})"
